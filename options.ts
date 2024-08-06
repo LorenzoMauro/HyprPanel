@@ -30,10 +30,21 @@ const colors = {
     "crust": "#11111b"
 };
 
+// Grey transparency substitute with the idea that the wallpaper color will set the vibe
+const newColors = {
+    "trasparent": "#ffffff00",
+    "base0": "#282828ff",
+    "base1": "#585858c4",
+    "strongText": "#D5D8D6",
+    "whiteText": "#C5C8C6",
+    "dimText": "#B4B4B4",
+    "border": "#595959c4",
+}
+
 const options = mkOptions(OPTIONS, {
     theme: {
         font: {
-            size: opt("1.2rem"),
+            size: opt("12px"),
             name: opt("Ubuntu Nerd Font"),
             weight: opt(600),
         },
@@ -70,30 +81,40 @@ const options = mkOptions(OPTIONS, {
             location: opt<"top left" | "top" | "top right" | "right" | "bottom right" | "bottom" | "bottom left" | "left">("right"),
         },
         bar: {
-            floating: opt(false),
+            floating: opt(true),
             margin_top: opt("0.5em"),
             margin_bottom: opt("0em"),
-            margin_sides: opt("0.5em"),
-            border_radius: opt("0.4em"),
+            margin_sides: opt("20px"),
+            border_radius: opt("10px"),
             outer_spacing: opt("1.6em"),
             label_spacing: opt("0.5em"),
             transparent: opt(false),
-            background: opt(colors.crust),
+            background: opt(newColors.base0),
+            border: {
+                size: opt("2px"),
+                radius: opt("10px"),
+                color: opt(newColors.border)
+            },
             buttons: {
-                monochrome: opt(false),
-                spacing: opt("0.25em"),
-                radius: opt("0.3em"),
-                background: opt(colors.base2),
-                hover: opt(colors.surface1),
-                text: opt(colors.lavender),
-                icon: opt(colors.lavender),
+                monochrome: opt(true),
+                spacing: opt("0.0em"),
+                radius: opt("10px"),
+                background: opt(newColors.trasparent),
+                hover: opt(newColors.base1),
+                hoverBorder: opt(newColors.trasparent),
+                text: opt(newColors.whiteText),
+                icon: opt(newColors.whiteText),
+                border: {
+                    size: opt("2px"),
+                    color: opt(newColors.trasparent),
+                },
                 dashboard: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    icon: opt(colors.yellow)
+                    icon: opt(newColors.whiteText)
                 },
                 workspaces: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
                     available: opt(colors.sky),
                     occupied: opt(colors.flamingo),
@@ -102,108 +123,108 @@ const options = mkOptions(OPTIONS, {
                     numbered_active_text_color: opt(colors.mantle),
                 },
                 windowtitle: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    text: opt(colors.pink),
-                    icon: opt(colors.pink),
+                    text: opt(newColors.whiteText),
+                    icon: opt(newColors.whiteText),
                     spacing: opt("0.5em"),
                 },
                 media: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    text: opt(colors.lavender),
-                    icon: opt(colors.lavender),
+                    text: opt(newColors.whiteText),
+                    icon: opt(newColors.whiteText),
                     spacing: opt("0.5em"),
                 },
                 volume: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    text: opt(colors.maroon),
-                    icon: opt(colors.maroon),
+                    text: opt(newColors.whiteText),
+                    icon: opt(newColors.whiteText),
                     spacing: opt("0.5em"),
                 },
                 network: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    text: opt(colors.mauve),
-                    icon: opt(colors.mauve),
+                    text: opt(newColors.whiteText),
+                    icon: opt(newColors.whiteText),
                     spacing: opt("0.5em"),
                 },
                 bluetooth: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    text: opt(colors.sky),
-                    icon: opt(colors.sky),
+                    text: opt(newColors.whiteText),
+                    icon: opt(newColors.whiteText),
                     spacing: opt("0.5em"),
                 },
                 systray: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
                 },
                 battery: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    text: opt(colors.yellow),
-                    icon: opt(colors.yellow),
+                    text: opt(newColors.whiteText),
+                    icon: opt(newColors.whiteText),
                     spacing: opt("0.5em"),
                 },
                 clock: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    text: opt(colors.pink),
-                    icon: opt(colors.pink),
+                    text: opt(newColors.whiteText),
+                    icon: opt(newColors.whiteText),
                 },
                 notifications: {
-                    background: opt(colors.base2),
+                    background: opt(newColors.base1),
                     hover: opt(colors.surface1),
-                    icon: opt(colors.lavender),
+                    icon: opt(newColors.whiteText),
                     total: opt(colors.lavender),
                     spacing: opt("0.5em"),
                 },
             },
             menus: {
                 monochrome: opt(false),
-                background: opt(colors.crust),
-                cards: opt(colors.base),
+                background: opt(newColors.base0),
+                cards: opt(newColors.trasparent),
                 card_radius: opt("0.4em"),
                 border: {
-                    size: opt("0.13em"),
-                    radius: opt("0.7em"),
-                    color: opt(colors.surface0)
+                    size: opt("2px"),
+                    radius: opt("10px"),
+                    color: opt(newColors.border)
                 },
-                text: opt(colors.text),
-                dimtext: opt(colors.surface2),
-                feinttext: opt(colors.surface0),
-                label: opt(colors.lavender),
+                text: opt(newColors.whiteText),
+                dimtext: opt(newColors.dimText),
+                feinttext: opt(newColors.strongText),
+                label: opt(newColors.strongText),
                 listitems: {
-                    passive: opt(colors.text),
-                    active: opt(colors.lavender)
+                    passive: opt(newColors.dimText),
+                    active: opt(newColors.strongText),
                 },
                 icons: {
-                    passive: opt(colors.surface2),
-                    active: opt(colors.lavender),
+                    passive: opt(newColors.dimText),
+                    active: opt(newColors.strongText),
                 },
                 switch: {
-                    enabled: opt(colors.lavender),
-                    disabled: opt(colors.surface0),
+                    enabled: opt(newColors.strongText),
+                    disabled: opt(newColors.dimText),
                     puck: opt(colors.overlay0)
                 },
                 buttons: {
-                    default: opt(colors.lavender),
-                    active: opt(colors.pink),
-                    disabled: opt(colors.surface2),
+                    default: opt(newColors.whiteText),
+                    active: opt(newColors.strongText),
+                    disabled: opt(newColors.dimText),
                     text: opt(colors.crust)
                 },
                 iconbuttons: {
-                    passive: opt(colors.text),
-                    active: opt(colors.lavender)
+                    passive: opt(newColors.dimText),
+                    active: opt(newColors.strongText),
                 },
                 progressbar: {
                     foreground: opt(colors.lavender),
                     background: opt(colors.surface1),
                 },
                 slider: {
-                    primary: opt(colors.lavender),
+                    primary: opt(newColors.strongText),
                     background: opt(colors.surface2),
                     backgroundhover: opt(colors.surface1),
                     puck: opt(colors.overlay0)
@@ -223,27 +244,27 @@ const options = mkOptions(OPTIONS, {
                         artist: opt(colors.teal),
                         album: opt(colors.pink),
                         background: {
-                            color: opt(colors.crust),
+                            color: opt(newColors.base0),
                         },
                         border: {
-                            color: opt(colors.surface0),
+                            color: opt(newColors.border),
                         },
                         buttons: {
                             inactive: opt(colors.surface2),
                             enabled: opt(colors.teal),
-                            background: opt(colors.lavender),
+                            background: opt(newColors.trasparent),
                             text: opt(colors.crust),
                         },
                         slider: {
                             primary: opt(colors.pink),
-                            background: opt(colors.surface2),
+                            background: opt(newColors.trasparent),
                             backgroundhover: opt(colors.surface1),
                             puck: opt(colors.overlay0)
                         }
                     },
                     volume: {
                         card: {
-                            color: opt(colors.base),
+                            color: opt(newColors.trasparent),
                         },
                         background: {
                             color: opt(colors.crust),
@@ -657,7 +678,7 @@ const options = mkOptions(OPTIONS, {
                 },
             },
             stats: {
-                enable_gpu: opt(false),
+                enable_gpu: opt(true),
             },
             shortcuts: {
                 left: {
@@ -679,7 +700,7 @@ const options = mkOptions(OPTIONS, {
                     shortcut4: {
                         icon: opt(""),
                         tooltip: opt("Search Apps"),
-                        command: opt("rofi -show drun")
+                        command: opt("bash -c \"$HOME/.config/rofi/launchers/type-3/launcher.sh\"")
                     },
                 },
                 right: {
@@ -699,29 +720,29 @@ const options = mkOptions(OPTIONS, {
                 left: {
                     directory1: {
                         label: opt("󰉍 Downloads"),
-                        command: opt("bash -c \"dolphin $HOME/Downloads/\"")
+                        command: opt("bash -c \"nemo $HOME/Downloads/\"")
                     },
                     directory2: {
                         label: opt("󰉏 Videos"),
-                        command: opt("bash -c \"dolphin $HOME/Videos/\"")
+                        command: opt("bash -c \"nemo $HOME/Videos/\"")
                     },
                     directory3: {
                         label: opt("󰚝 Projects"),
-                        command: opt("bash -c \"dolphin $HOME/Projects/\"")
+                        command: opt("bash -c \"nemo $HOME/Projects/\"")
                     },
                 },
                 right: {
                     directory1: {
                         label: opt("󱧶 Documents"),
-                        command: opt("bash -c \"dolphin $HOME/Documents/\"")
+                        command: opt("bash -c \"nemo $HOME/Documents/\"")
                     },
                     directory2: {
                         label: opt("󰉏 Pictures"),
-                        command: opt("bash -c \"dolphin $HOME/Pictures/\"")
+                        command: opt("bash -c \"nemo $HOME/Pictures/\"")
                     },
                     directory3: {
                         label: opt("󱂵 Home"),
-                        command: opt("bash -c \"dolphin $HOME/\"")
+                        command: opt("bash -c \"nemo $HOME/\"")
                     },
                 }
             },
@@ -732,8 +753,8 @@ const options = mkOptions(OPTIONS, {
             },
             weather: {
                 interval: opt(60000),
-                unit: opt<"metric" | "imperial">("imperial"),
-                location: opt("Los Angeles"),
+                unit: opt<"metric" | "imperial">("metric"),
+                location: opt("Rome"),
                 key: opt<string>(
                     JSON.parse(Utils.readFile(`${App.configDir}/.weather.json`) || "{}")?.weather_api_key || "",
                 ),

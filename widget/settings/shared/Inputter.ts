@@ -1,5 +1,6 @@
 import { Opt } from "lib/option"
 import Gdk from "gi://Gdk"
+import Gtk from 'gi://Gtk?version=3.0';
 import icons from "lib/icons"
 import { RowProps } from "lib/types/options"
 
@@ -85,13 +86,14 @@ export const Inputter = <T>({
                         const rgba = new Gdk.RGBA()
                         rgba.parse(opt.value as string)
                         self.rgba = rgba
+                        self.set_use_alpha(true);
                     })
-                    .on("color-set", ({ rgba: { red, green, blue } }) => {
+                    .on("color-set", ({ rgba: { red, green, blue, alpha  } }) => {
                         const hex = (n: number) => {
                             const c = Math.floor(255 * n).toString(16)
                             return c.length === 1 ? `0${c}` : c
                         }
-                        opt.value = `#${hex(red)}${hex(green)}${hex(blue)}` as T
+                        opt.value = `#${hex(red)}${hex(green)}${hex(blue)}${hex(alpha)}` as T
                     })
 
                 default: return self.child = Widget.Label({

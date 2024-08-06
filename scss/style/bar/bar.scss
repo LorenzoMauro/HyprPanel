@@ -17,17 +17,20 @@
   .bar-panel {
     background: if($bar-transparent, transparent, $bar-background);
     border-radius: if($bar-floating, $bar-border_radius, 0em);
+    border: $bar-border-size solid $bar-border-color;
   }
 }
 
 .bar_item_box_visible {
   background-color: $bar-buttons-background;
   border-radius: $bar-buttons-radius;
-  padding: 0.2rem 0.9rem;
-  margin: 0.5rem $bar-buttons-spacing;
+  padding: 0.0rem 0.2rem;
+  margin: 0.0rem $bar-buttons-spacing;
+  border: $bar-buttons-border-size solid $bar-buttons-border-color;
 
   &:hover {
     background: $bar-buttons-hover;
+    border: $bar-buttons-border-size solid $bar-buttons-hoverBorder;
   }
 
   &.battery {
